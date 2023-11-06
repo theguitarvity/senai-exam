@@ -1,12 +1,11 @@
 package com.mrlopito.senai.exam.crud.resources;
 
 
-import com.mrlopito.senai.exam.crud.application.commands.*;
+import com.mrlopito.senai.exam.crud.application.commands.customer.*;
 import com.mrlopito.senai.exam.crud.domain.dtos.CreateCustomerDTO;
 import com.mrlopito.senai.exam.crud.domain.dtos.UpdateCustomerDTO;
 import com.mrlopito.senai.exam.crud.domain.entities.Customer;
 import jakarta.inject.Inject;
-import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
@@ -14,14 +13,10 @@ import jakarta.ws.rs.core.Response;
 
 import java.util.List;
 
-@Path("/client")
+@Path("/customer")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class CustomerResource {
-
-    @Inject
-    EntityManager em;
-
 
     private final CreateCustomerCommand createCustomerCommand;
     private final UpdateCustomerCommand updateCustomerCommand;
@@ -63,7 +58,7 @@ public class CustomerResource {
 
     @DELETE
     @Path("{id}")
-    public Response update(Long id) {
+    public Response delete(Long id) {
         deleteCustomerCommand.handle(id);
 
         return Response.ok().build();

@@ -1,4 +1,4 @@
-package com.mrlopito.senai.exam.crud.infestructure.database.adapters;
+package com.mrlopito.senai.exam.crud.infestructure.adapters.database;
 
 import com.mrlopito.senai.exam.crud.domain.entities.Customer;
 import com.mrlopito.senai.exam.crud.domain.repositories.CustomerRepository;

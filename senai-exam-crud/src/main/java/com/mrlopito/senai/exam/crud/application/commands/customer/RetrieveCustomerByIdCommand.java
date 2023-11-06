@@ -1,7 +1,6 @@
-package com.mrlopito.senai.exam.crud.application.commands;
+package com.mrlopito.senai.exam.crud.application.commands.customer;
 
 
-import com.mrlopito.senai.exam.crud.domain.dtos.CreateCustomerDTO;
 import com.mrlopito.senai.exam.crud.domain.entities.Customer;
 import com.mrlopito.senai.exam.crud.domain.repositories.CustomerRepository;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -11,16 +10,16 @@ import jakarta.transaction.Transactional;
 import java.util.List;
 
 @ApplicationScoped
-public class RetrieveAllCustomersCommand {
+public class RetrieveCustomerByIdCommand {
 
     @Inject
     private CustomerRepository repository;
 
 
     @Transactional
-    public List<Customer> handle() {
+    public Customer handle(Long id) {
 
-        return repository.getAll();
+        return repository.get(id);
 
     }
 }
